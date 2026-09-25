@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="340" viewBox="0 0 860 340" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5b5bd6"/>
+    </marker>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="860" height="340" rx="16" fill="#f8fafc"/>
+  <text x="430" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#1e1b4b">Real-Time Streaming: Kafka → Stream Processing → Snowflake</text>
+  <text x="430" y="54" text-anchor="middle" font-size="12" fill="#64748b">Demo / concept architecture — tumbling-window aggregations on event streams</text>
+
+  <!-- Producers -->
+  <rect x="30" y="110" width="150" height="90" rx="12" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+  <text x="105" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#1e1b4b">Event Sources</text>
+  <text x="105" y="162" text-anchor="middle" font-size="12" fill="#475569">Clickstream · Orders</text>
+  <text x="105" y="180" text-anchor="middle" font-size="12" fill="#475569">IoT sensors</text>
+
+  <!-- Kafka -->
+  <rect x="240" y="110" width="150" height="90" rx="12" fill="url(#g1)"/>
+  <text x="315" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Apache Kafka</text>
+  <text x="315" y="162" text-anchor="middle" font-size="12" fill="#e0e7ff">Topics: events_raw</text>
+  <text x="315" y="180" text-anchor="middle" font-size="12" fill="#e0e7ff">3 partitions · keyed</text>
+
+  <!-- Stream processor -->
+  <rect x="450" y="110" width="160" height="90" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="530" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">Stream Processor</text>
+  <text x="530" y="162" text-anchor="middle" font-size="12" fill="#92400e">Tumbling windows (1 min)</text>
+  <text x="530" y="180" text-anchor="middle" font-size="12" fill="#92400e">Counts · sums · dedupe</text>
+
+  <!-- Snowflake -->
+  <rect x="670" y="110" width="160" height="90" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="750" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#0c4a6e">Snowflake</text>
+  <text x="750" y="162" text-anchor="middle" font-size="12" fill="#075985">Table: events_agg</text>
+  <text x="750" y="180" text-anchor="middle" font-size="12" fill="#075985">Dashboard serving</text>
+
+  <!-- Arrows -->
+  <line x1="180" y1="155" x2="236" y2="155" stroke="#5b5bd6" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="208" y="145" text-anchor="middle" font-size="11" fill="#5b5bd6">produce</text>
+  <line x1="390" y1="155" x2="446" y2="155" stroke="#5b5bd6" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="418" y="145" text-anchor="middle" font-size="11" fill="#5b5bd6">consume</text>
+  <line x1="610" y1="155" x2="666" y2="155" stroke="#5b5bd6" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="638" y="145" text-anchor="middle" font-size="11" fill="#5b5bd6">micro-batch sink</text>
+
+  <!-- Notes -->
+  <text x="430" y="250" text-anchor="middle" font-size="12" fill="#475569">Exactly-once semantics via idempotent producer + transactional sink · backpressure handled by consumer lag monitoring</text>
+  <rect x="30" y="270" width="800" height="44" rx="10" fill="#fff7ed" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="430" y="297" text-anchor="middle" font-size="12" fill="#9a3412">Demo: the local simulation below mimics this pipeline with a Python event generator + tumbling-window aggregation (no real Kafka/Snowflake cluster).</text>
+</svg>

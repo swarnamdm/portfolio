@@ -1,0 +1,45 @@
+[2026-09-24 23:17:42 UTC] === ETL PIPELINE START ===
+[2026-09-24 23:17:42 UTC] --- EXTRACT ---
+[2026-09-24 23:17:42 UTC] Extracted 53,940 rows x 10 cols from diamonds.csv
+[2026-09-24 23:17:42 UTC] Columns: ['carat', 'cut', 'color', 'clarity', 'depth', 'table', 'price', 'x', 'y', 'z']
+[2026-09-24 23:17:42 UTC] --- TRANSFORM ---
+[2026-09-24 23:17:42 UTC] Type coercion: 0 non-numeric cells -> NaN
+[2026-09-24 23:17:42 UTC] Dedupe: removed 146 exact duplicate rows (53,940 -> 53,794)
+[2026-09-24 23:17:42 UTC] Standardize 'cut': 5 canonical values; unknown -> NaN: none
+[2026-09-24 23:17:42 UTC] Standardize 'color': 7 canonical values; unknown -> NaN: none
+[2026-09-24 23:17:42 UTC] Standardize 'clarity': 9 canonical values; unknown -> NaN: none
+[2026-09-24 23:17:42 UTC] Quarantine: 19 rows with zero x/y/z dimension excluded from fact (53,775 remain)
+[2026-09-24 23:17:42 UTC] Derived columns: price_per_carat, volume_mm3
+[2026-09-24 23:17:42 UTC] TRANSFORM complete: 53,940 -> 53,775 rows (146 dupes + 19 quarantined removed)
+[2026-09-24 23:17:42 UTC] --- DATA QUALITY CHECKS ---
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[carat]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[cut]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[color]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[clarity]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[depth]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[table]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[price]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[x]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[y]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[z]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[price_per_carat]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] null_rate[volume_mm3]: 0.000% null (0 cells)
+[2026-09-24 23:17:42 UTC] DQ [PASS] no_duplicates: 0 duplicate rows remain
+[2026-09-24 23:17:42 UTC] DQ [PASS] range[price>0]: min=$326, max=$18,823
+[2026-09-24 23:17:42 UTC] DQ [PASS] range[carat in (0,6]]: min=0.2, max=5.01
+[2026-09-24 23:17:42 UTC] DQ [PASS] range[depth 40-80]: min=43.0, max=79.0, out-of-range=0
+[2026-09-24 23:17:42 UTC] DQ [PASS] range[table 40-95]: min=43.0, max=95.0, out-of-range=0
+[2026-09-24 23:17:42 UTC] DQ [PASS] range[x,y,z > 0]: all dimensions positive after quarantine
+[2026-09-24 23:17:42 UTC] DQ [PASS] categories[cut]: 0 unknown cut values
+[2026-09-24 23:17:42 UTC] DQ summary: 19/19 checks passed
+[2026-09-24 23:17:42 UTC] --- LOAD ---
+[2026-09-24 23:17:43 UTC] Loaded table diamonds_clean: 53,775 rows
+[2026-09-24 23:17:43 UTC] Loaded table cut_summary: 5 rows (one per cut grade)
+[2026-09-24 23:17:43 UTC] Loaded table dq_report: 19 rows (one per DQ check)
+[2026-09-24 23:17:43 UTC] Loaded table quarantine_zero_dimension: 19 rows (audit trail)
+[2026-09-24 23:17:43 UTC] Warehouse verify: cut_summary = 5 rows
+[2026-09-24 23:17:43 UTC] Warehouse verify: diamonds_clean = 53,775 rows
+[2026-09-24 23:17:43 UTC] Warehouse verify: dq_report = 19 rows
+[2026-09-24 23:17:43 UTC] Warehouse verify: quarantine_zero_dimension = 19 rows
+[2026-09-24 23:17:43 UTC] Warehouse written: /home/hatch/workspace/portfolio-projects/etl-pipeline/portfolio_warehouse.db
+[2026-09-24 23:17:43 UTC] === ETL PIPELINE END: SUCCESS ===

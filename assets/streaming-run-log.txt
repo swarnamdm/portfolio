@@ -1,0 +1,17 @@
+======================================================================
+STREAMING SIMULATION — Kafka topic 'events_raw' -> tumbling windows -> sink
+Target rate: 400 events/sec | window: 1.0s | duration: 5s
+======================================================================
+[window 01 @ t+ 1.00s] events= 400  revenue=$105,643.55  rate= 400.0 ev/s
+[window 02 @ t+ 2.00s] events= 400  revenue=$97,366.83  rate= 400.0 ev/s
+[window 03 @ t+ 3.00s] events= 401  revenue=$100,992.50  rate= 401.0 ev/s
+[window 04 @ t+ 4.00s] events= 400  revenue=$102,448.00  rate= 400.0 ev/s
+[window 05 @ t+ 5.00s] events= 399  revenue=$96,819.50  rate= 399.0 ev/s
+----------------------------------------------------------------------
+TOTAL events processed : 2000
+TOTAL revenue          : $503,270.38
+Duplicates skipped     : 0
+Wall-clock time        : 5.00s
+Achieved throughput    : 400.0 events/sec
+Windows emitted        : 5 (tumbling, 1.0s each)
+SINK -> Snowflake.events_agg: all windows committed (simulated)
