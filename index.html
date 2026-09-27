@@ -1,4 +1,3 @@
-<!-- redeploy nudge -->
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,6 +8,7 @@
     <meta property="og:title" content="Swarnalakshmi Muthusamy — Data Portfolio" />
     <meta property="og:description" content="Data Analyst with 6+ years of experience. Interactive portfolio: analytics case studies, data engineering demos, and machine learning projects." />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://swarnamdm.github.io/portfolio/assets/og-image.png" />
     <meta property="og:url" content="https://swarnamdm.github.io/portfolio/" />
     <link rel="icon" href="data:," />
     <title>Swarnalakshmi Muthusamy — Data Analyst</title>
@@ -1938,6 +1938,131 @@
       @media (prefers-reduced-motion: reduce) {
         .hero-portrait__bars i, .hero::before { animation: none !important; }
       }
+
+      /* Compact project taxonomy: 4 analyst, 2 engineering, 1 data science. */
+      .project-card.project-summary { cursor: default; }
+      .project-card.project-summary:hover { transform: none; box-shadow: none; }
+      .project-facts { display: grid; gap: 12px; margin: 0 0 16px; }
+      .project-facts div { display: grid; gap: 3px; }
+      .project-facts dt { color: var(--accent); font: 500 .66rem/1.2 "DM Mono", monospace; letter-spacing: .04em; text-transform: uppercase; }
+      .project-facts dd { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+      .project-card:nth-child(3n+2) .project-facts dt,
+      .project-card:nth-child(3n+2) .project-facts dd { color: #111; }
+      .compact-project-body { padding: 24px; }
+      .science-grid--single { grid-template-columns: minmax(0, 1fr); }
+      .science-grid--single .science-card[open] { grid-column: auto; }
+      @media (max-width: 760px) { .compact-project-body { padding: 20px; } }
+
+      /* Decision-led project case studies */
+      .impact-projects { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+      .impact-project, .churn-case { min-width: 0; border: 1px solid var(--line); border-top: 7px solid var(--accent); border-radius: 9px; background: #151515; overflow: hidden; }
+      .impact-project__head, .science-case-head { display: grid; grid-template-columns: 42px minmax(0,1fr) auto; gap: 14px; align-items: start; padding: 24px; border-bottom: 1px solid var(--line); background: #191919; }
+      .case-number { color: var(--accent); font: 700 1.65rem/1 "Barlow Condensed", sans-serif; }
+      .case-type { display: block; margin-bottom: 7px; color: var(--accent); font: 500 .63rem/1.3 "DM Mono", monospace; letter-spacing: .04em; }
+      .impact-project h3, .science-case-head h3 { margin: 0; color: #fff; font-size: 1.18rem; line-height: 1.25; }
+      .impact-number { min-width: 96px; color: var(--accent); font: 800 1.75rem/.9 "Barlow Condensed", sans-serif; text-align: right; }
+      .impact-number small { display: block; margin-top: 7px; color: var(--muted); font: 500 .63rem/1.25 "IBM Plex Sans", sans-serif; }
+      .case-story { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-bottom: 1px solid var(--line); }
+      .case-story > div { min-width: 0; padding: 18px; }
+      .case-story > div + div { border-left: 1px solid var(--line); }
+      .case-story b { display: block; margin-bottom: 7px; color: var(--accent); font: 600 .66rem/1.2 "DM Mono", monospace; text-transform: uppercase; }
+      .case-story p { margin: 0; color: var(--muted); font-size: .77rem; line-height: 1.48; }
+      .case-tools { display: flex; flex-wrap: wrap; gap: 6px; padding: 15px 18px 0; }
+      .case-tools span { padding: 5px 8px; border: 1px solid #41413b; color: #d5d5ce; font-size: .65rem; }
+      .case-demo { padding: 18px; }
+      .case-controls, .threshold-controls { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+      .case-control, .threshold-controls button { min-height: 36px; padding: 8px 11px; border: 1px solid #464640; background: #111; color: var(--muted); cursor: pointer; font: 700 .7rem/1 "IBM Plex Sans", sans-serif; }
+      .case-control:hover, .case-control[aria-pressed="true"], .threshold-controls button:hover, .threshold-controls button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: #090909; }
+      .case-view { display: none; }
+      .case-view.is-visible { display: block; animation: panelIn .28s ease both; }
+      .chart-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 7px; color: var(--muted); font-size: .67rem; }
+      .chart-readout { color: var(--accent); text-align: right; }
+      .line-chart { display: block; width: 100%; height: auto; border: 1px solid #30302d; background: #101010; }
+      .chart-grid path { fill: none; stroke: #2e2e2a; stroke-width: 1; }
+      .series { fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .series--actual { stroke: var(--accent); }
+      .series--forecast { stroke: #fff; stroke-dasharray: 8 8; opacity: .78; }
+      .chart-points circle { fill: #111; stroke: var(--accent); stroke-width: 3; cursor: crosshair; transition: r .16s ease, fill .16s ease; }
+      .chart-points circle:hover, .chart-points circle:focus { r: 9; fill: var(--accent); outline: none; }
+      .chart-legend { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 8px; color: var(--muted); font-size: .65rem; }
+      .chart-legend span { display: inline-flex; align-items: center; gap: 5px; }
+      .chart-legend i { width: 18px; height: 2px; background: var(--accent); }
+      .chart-legend i.forecast { background: #fff; opacity: .8; }
+      .chart-legend small { margin-left: auto; color: var(--faint); }
+      .decision-grid, .run-strip, .threshold-output { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border: 1px solid var(--line); }
+      .decision-grid div, .run-strip div, .threshold-output div { min-width: 0; padding: 18px 12px; background: #101010; text-align: center; }
+      .decision-grid div + div, .run-strip div + div, .threshold-output div + div { border-left: 1px solid var(--line); }
+      .decision-grid strong, .run-strip strong, .threshold-output strong { display: block; color: var(--accent); font: 800 1.65rem/1 "Barlow Condensed", sans-serif; }
+      .decision-grid span, .run-strip span, .threshold-output span { display: block; margin-top: 5px; color: var(--faint); font-size: .63rem; line-height: 1.3; }
+      .case-note { margin: 12px 0 0; color: var(--faint); font-size: .66rem; line-height: 1.45; }
+      .demo-instruction { margin: 0 0 10px; color: var(--faint); font-size: .69rem; }
+      .kpi-picker { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+      .kpi-picker button { min-width: 0; padding: 13px; border: 1px solid #3d3d38; background: #101010; color: var(--muted); cursor: pointer; text-align: left; }
+      .kpi-picker button:hover, .kpi-picker button[aria-pressed="true"] { border-color: var(--accent); }
+      .kpi-picker button[aria-pressed="true"] { box-shadow: inset 0 0 0 1px var(--accent); }
+      .kpi-picker span, .kpi-picker small { display: block; font-size: .62rem; }
+      .kpi-picker strong { display: block; margin: 5px 0; color: var(--accent); font: 800 1.35rem/1 "Barlow Condensed",sans-serif; }
+      .kpi-readout { margin-top: 9px; padding: 14px; border-left: 3px solid var(--accent); background: #202020; }
+      .kpi-readout span { color: var(--faint); font-size: .64rem; }
+      .kpi-readout strong { margin: 0 8px; color: var(--accent); }
+      .kpi-readout b { color: #fff; font-size: .72rem; }
+      .kpi-readout p { margin: 8px 0 0; color: var(--muted); font-size: .72rem; line-height: 1.45; }
+      .hbar, .variance-row { display: grid; grid-template-columns: 88px minmax(0,1fr) 62px; gap: 10px; align-items: center; padding: 8px 0; color: var(--muted); font-size: .68rem; }
+      .hbar i { height: 10px; width: var(--bar); background: var(--accent); transform-origin: left; animation: growBar .6s ease both; }
+      .hbar b, .variance-row b { color: var(--accent); text-align: right; }
+      .variance-row div { height: 10px; background: #30302d; }
+      .variance-row i { display: block; width: min(var(--actual),100%); height: 100%; background: var(--accent); }
+      .baseline-label { display: block; margin-top: 6px; color: var(--faint); font-size: .62rem; }
+      .decision-list { border-top: 1px solid var(--line); }
+      .decision-list div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .72rem; }
+      .decision-list strong { color: var(--accent); text-align: right; }
+      .impact-engineering { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .impact-engineering .engineering-card[open] { grid-column: auto; }
+      .impact-engineering .engineering-card summary { min-height: 250px; }
+      .impact-engineering .engineering-card[open] summary { min-height: 0; }
+      .impact-flow { display: grid; grid-template-columns: 1fr 22px 1fr 22px 1fr 22px 1fr; gap: 5px; align-items: center; margin: 20px 0; }
+      .impact-flow span { min-width: 0; padding: 13px 8px; border: 1px solid var(--accent); background: #181818; color: #fff; font-size: .66rem; text-align: center; }
+      .impact-flow i { position: relative; height: 2px; overflow: hidden; background: #3a3a34; }
+      .impact-flow i::after { content: ""; position: absolute; inset: 0; background: var(--accent); transform: translateX(-100%); animation: flowPulse 1.8s linear infinite; }
+      @keyframes flowPulse { to { transform: translateX(100%); } }
+      .mart-map { display: grid; grid-template-columns: 1.2fr .8fr; gap: 12px; margin: 20px 0; }
+      .fact-table, .dimension-stack span { border: 1px solid var(--line); background: #181818; }
+      .fact-table { padding: 13px; display: grid; gap: 5px; }
+      .fact-table b { color: var(--accent); }
+      .fact-table span, .dimension-stack span { color: var(--muted); font-size: .67rem; }
+      .dimension-stack { display: grid; gap: 7px; }
+      .dimension-stack span { display: grid; place-items: center; padding: 9px; }
+      .science-case-head { border-bottom: 1px solid var(--line); }
+      .science-details .case-story { margin: -22px -22px 0; }
+      .science-details .case-tools { padding-left: 0; }
+      .churn-lab { display: grid; grid-template-columns: .65fr 1.35fr; gap: 16px; align-items: end; margin: 20px 0; padding: 18px; border: 1px solid var(--line); background: #101010; }
+      .threshold-controls { margin-bottom: 0; }
+      .threshold-output strong { font-size: 1.3rem; }
+      .risk-bar { position: relative; height: 28px; margin: 15px 0 0; background: linear-gradient(90deg,#2b2b29,var(--accent)); }
+      .risk-bar > span { position: absolute; bottom: -19px; color: var(--faint); font-size: .6rem; }
+      .risk-bar > span:nth-of-type(1) { left: 0; }
+      .risk-bar > span:nth-of-type(2) { right: 0; }
+      .risk-bar b { position: absolute; top: -5px; width: 3px; height: 38px; background: #fff; box-shadow: 0 0 0 2px #090909; transition: left .28s ease; }
+      @media (max-width: 900px) {
+        .impact-projects { grid-template-columns: 1fr; }
+        .impact-engineering { grid-template-columns: 1fr; }
+        .impact-engineering .engineering-card summary { min-height: 0; }
+      }
+      @media (max-width: 700px) {
+        .impact-project__head, .science-case-head { grid-template-columns: 34px minmax(0,1fr); padding: 18px 15px; }
+        .impact-number { grid-column: 2; min-width: 0; text-align: left; }
+        .case-story { grid-template-columns: 1fr; }
+        .case-story > div + div { border-left: 0; border-top: 1px solid var(--line); }
+        .kpi-picker, .decision-grid, .run-strip, .threshold-output { grid-template-columns: 1fr; }
+        .decision-grid div + div, .run-strip div + div, .threshold-output div + div { border-left: 0; border-top: 1px solid var(--line); }
+        .impact-flow { grid-template-columns: 1fr; }
+        .impact-flow i { width: 2px; height: 18px; margin: auto; }
+        .impact-flow i::after { transform: translateY(-100%); animation-name: flowPulseY; }
+        @keyframes flowPulseY { to { transform: translateY(100%); } }
+        .churn-lab { grid-template-columns: 1fr; }
+        .science-details .case-story { margin: -16px -14px 0; }
+      }
+      @media (prefers-reduced-motion: reduce) { .impact-flow i::after { animation: none; transform: none; } }
     </style>
   </head>
   <body>
@@ -2114,438 +2239,79 @@
 
       <section class="section" id="projects" aria-labelledby="projects-title">
         <div class="section-head">
-          <div class="section-index">03 / Data lab</div>
+          <div class="section-index">03 / Data analyst projects</div>
           <div>
-            <h2 id="projects-title">Seven projects. One decision-first mindset.</h2>
-            <p class="section-intro">Explore finance, retail, customer, demand, and economic data through interactive executive dashboards—plus the runnable ETL pipeline behind the diamond pricing work. Every figure comes from reproducible Python/pandas analysis of a cited public dataset.</p>
+            <h2 id="projects-title">The business problem. The decision. The value.</h2>
+            <p class="section-intro">Four concise case studies built around the questions operating teams actually need answered. Use the controls to inspect the decision view in each project.</p>
           </div>
         </div>
 
-        <div class="project-catalog" aria-label="Featured data project cards">
-          <button class="project-card is-current" type="button" data-open-project="stocks">
-            <span class="project-card__visual"><img src="assets/asset-01.png" alt="Apple daily closing price trend preview" /><span class="project-card__overlay"><strong>+10.1%</strong><small>two-year return</small></span></span>
-            <span class="project-card__copy"><span class="project-card__number"><b data-card-count="1">00</b><span>FINANCE ANALYTICS</span></span><h3>Apple Stock Market Analytics</h3><p>An end-to-end analysis of Apple Inc. stock performance from 2015 to 2017 to uncover what really drives returns — evaluating daily price action, trading volume patterns, and the asymmetry between winning and losing days. This analysis revealed that only 49.9% of days closed up, yet total return reached +10.1%, proving gains came from magnitude, not frequency — a key insight for timing and risk decisions.</p><p><strong>Tools:</strong> Python (pandas, matplotlib)</p><p><strong>Analysis:</strong> EDA, Time Series Analysis, Return &amp; Volume Analysis</p><span class="project-card__link">Open dashboard ↓</span></span>
-          </button>
-          <button class="project-card" type="button" data-open-project="diamonds">
-            <span class="project-card__visual"><img src="assets/asset-02.png" alt="Diamond median price by cut preview" /><span class="project-card__overlay"><strong>53,775</strong><small>clean rows</small></span></span>
-            <span class="project-card__copy"><span class="project-card__number"><b data-card-count="2">00</b><span>PRODUCT ANALYTICS</span></span><h3>Diamond Pricing Analytics</h3><p>A project uncovering what truly drives diamond prices across 53,940 stones — analyzing the interplay of carat, cut, color, and clarity to find pricing patterns and market surprises. This analysis revealed a striking composition effect: Ideal-cut diamonds show the lowest median price ($1,813) not from lower quality, but because they skew smaller — with carat alone correlating 0.922 with price.</p><p><strong>Tools:</strong> Python (pandas, matplotlib)</p><p><strong>Analysis:</strong> EDA, Correlation Analysis, Segmentation</p><span class="project-card__link">Open dashboard ↓</span></span>
-          </button>
-          <button class="project-card" type="button" data-open-project="flights">
-            <span class="project-card__visual"><img src="assets/asset-03.png" alt="Airline passenger seasonality and trend preview" /><span class="project-card__overlay"><strong>+275.9%</strong><small>total growth</small></span></span>
-            <span class="project-card__copy"><span class="project-card__number"><b data-card-count="3">00</b><span>DEMAND PLANNING</span></span><h3>Airline Demand Forecasting</h3><p>An end-to-end time series analysis of airline passenger demand from 1949 to 1960 to quantify growth and seasonality for capacity planning. This analysis measured 275.9% total growth at a 12.8% CAGR, with a 50.9% seasonal swing between July peaks and November troughs — the foundation of a reliable demand forecasting model.</p><p><strong>Tools:</strong> Python (pandas, matplotlib)</p><p><strong>Analysis:</strong> EDA, Time Series Decomposition, Seasonality Analysis</p><span class="project-card__link">Open dashboard ↓</span></span>
-          </button>
-          <button class="project-card" type="button" data-open-project="superstore">
-            <span class="project-card__visual"><img src="assets/asset-05.png" alt="Superstore monthly sales and profit trend preview" /><span class="project-card__overlay"><strong>$286K</strong><small>total profit</small></span></span>
-            <span class="project-card__copy"><span class="project-card__number"><b data-card-count="4">00</b><span>RETAIL ANALYTICS</span></span><h3>Superstore Sales &amp; Profitability</h3><p>An end-to-end retail analytics project diagnosing profitability across $2.3M in sales to find where margin is won and lost. This analysis exposed that over-discounting destroys margin — loss-making orders averaged 48.1% discount versus 8.1% on profitable ones — and that Technology earns a 17.4% margin while Furniture earns just 2.5%, guiding pricing and assortment strategy.</p><p><strong>Tools:</strong> Python (pandas, matplotlib)</p><p><strong>Analysis:</strong> EDA, Profitability Analysis, Discount Impact Analysis</p><span class="project-card__link">Open dashboard ↓</span></span>
-          </button>
-          <button class="project-card" type="button" data-open-project="churn">
-            <span class="project-card__visual"><img src="assets/asset-04.png" alt="Customer churn rate by contract preview" /><span class="project-card__overlay"><strong>26.54%</strong><small>overall churn</small></span></span>
-            <span class="project-card__copy"><span class="project-card__number"><b data-card-count="5">00</b><span>CUSTOMER ANALYTICS</span></span><h3>Telco Customer Churn Analytics</h3><p>A project focused on predicting and reducing customer churn for a telecom company by identifying the strongest churn drivers across 7,043 customers. This analysis found month-to-month contracts churn at 42.7% versus 2.8% for two-year contracts, and electronic-check payers churn at 45.3% — clear levers for a targeted retention strategy.</p><p><strong>Tools:</strong> Python (pandas, matplotlib)</p><p><strong>Analysis:</strong> EDA, Driver Analysis, Segmentation</p><span class="project-card__link">Open dashboard ↓</span></span>
-          </button>
-          <button class="project-card" type="button" data-open-project="unrate">
-            <span class="project-card__visual"><img src="assets/asset-06.png" alt="US unemployment long-run trend preview" /><span class="project-card__overlay"><strong>944</strong><small>months analyzed</small></span></span>
-            <span class="project-card__copy"><span class="project-card__number"><b data-card-count="6">00</b><span>ECONOMIC ANALYTICS</span></span><h3>US Unemployment Rate Analysis</h3><p>A macroeconomic time series analysis of US unemployment from 1948 to the present to understand labor-market cycles and shocks. This analysis captured the COVID spike from 3.6% to 14.8% in just four months — followed by the fastest recovery on record — against a long-run average of 5.65%.</p><p><strong>Tools:</strong> Python (pandas, matplotlib), FRED data</p><p><strong>Analysis:</strong> EDA, Time Series Analysis, Cycle Analysis</p><span class="project-card__link">Open dashboard ↓</span></span>
-          </button>
-          <button class="project-card" type="button" data-open-project="etl">
-            <span class="project-card__visual project-card__visual--flow" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="project-card__overlay"><strong>19 / 19</strong><small>DQ checks passed</small></span></span>
-            <span class="project-card__copy"><span class="project-card__number"><b data-card-count="7">00</b><span>DATA ENGINEERING</span></span><h3>ETL Pipeline with Data Quality</h3><p>An end-to-end data engineering project building a real ETL pipeline: extracting raw diamond data, transforming and validating it through 19 data-quality checks, and loading it into a SQLite warehouse. This pipeline refined 53,940 raw rows into a trusted 53,775-row dataset with 19/19 quality checks passing.</p><p><strong>Tools:</strong> Python, SQLite</p><p><strong>Analysis:</strong> ETL, Data Quality Checks, Data Modeling</p><span class="project-card__link">Open pipeline ↓</span></span>
-          </button>
-        </div>
-
-        <div class="project-switcher" role="tablist" aria-label="Data projects">
-          <button class="project-tab" id="tab-stocks" role="tab" aria-selected="true" aria-controls="panel-stocks" data-project="stocks">Stock market<small>AAPL · 506 days</small></button>
-          <button class="project-tab" id="tab-diamonds" role="tab" aria-selected="false" aria-controls="panel-diamonds" data-project="diamonds" tabindex="-1">Diamond pricing<small>53,775 clean rows</small></button>
-          <button class="project-tab" id="tab-flights" role="tab" aria-selected="false" aria-controls="panel-flights" data-project="flights" tabindex="-1">Airline demand<small>144 months</small></button>
-          <button class="project-tab" id="tab-superstore" role="tab" aria-selected="false" aria-controls="panel-superstore" data-project="superstore" tabindex="-1">Retail profitability<small>10,800 rows</small></button>
-          <button class="project-tab" id="tab-churn" role="tab" aria-selected="false" aria-controls="panel-churn" data-project="churn" tabindex="-1">Customer churn<small>7,043 customers</small></button>
-          <button class="project-tab" id="tab-unrate" role="tab" aria-selected="false" aria-controls="panel-unrate" data-project="unrate" tabindex="-1">Labor market<small>944 months</small></button>
-          <button class="project-tab" id="tab-etl" role="tab" aria-selected="false" aria-controls="panel-etl" data-project="etl" tabindex="-1">ETL pipeline<small>19 / 19 DQ checks</small></button>
-        </div>
-
-        <div class="dashboard-shell">
-          <article class="dashboard-panel is-active" id="panel-stocks" role="tabpanel" aria-labelledby="tab-stocks" data-panel="stocks">
-            <header class="dashboard-head">
-              <div><p class="dashboard-kicker">01 · FINANCE ANALYTICS · 2015-02-17 TO 2017-02-16</p><h3>Apple Stock Market Analytics</h3><p>An end-to-end analysis of Apple Inc. stock performance from 2015 to 2017 to uncover what really drives returns — evaluating daily price action, trading volume patterns, and the asymmetry between winning and losing days. This analysis revealed that only 49.9% of days closed up, yet total return reached +10.1%, proving gains came from magnitude, not frequency — a key insight for timing and risk decisions.</p><p><strong>Tools:</strong> Python (pandas, matplotlib)<br /><strong>Analysis:</strong> EDA, Time Series Analysis, Return &amp; Volume Analysis</p></div>
-              <a class="source-link" href="https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv" target="_blank" rel="noreferrer">Source dataset ↗</a>
-            </header>
-            <div class="dashboard-body">
-              <div class="metric-grid">
-                <div class="metric" tabindex="0" data-tip="One row per market trading day."><span class="metric__value" data-count="506">506</span><span class="metric__label">trading days</span></div>
-                <div class="metric" tabindex="0" data-tip="Adjusted close, first observation to last."><span class="metric__value" data-count="10.1" data-prefix="+" data-suffix="%">+10.1%</span><span class="metric__label">total return</span></div>
-                <div class="metric" tabindex="0" data-tip="Arithmetic mean of daily closing price."><span class="metric__value" data-count="112.96" data-prefix="$">$112.96</span><span class="metric__label">average close</span></div>
-                <div class="metric" tabindex="0" data-tip="Mean daily shares traded."><span class="metric__value" data-count="43.18" data-suffix="M">43.18M</span><span class="metric__label">average daily volume</span></div>
-                <div class="metric" tabindex="0" data-tip="252 positive days out of 505 return-days."><span class="metric__value" data-count="49.9" data-suffix="%">49.9%</span><span class="metric__label">up days</span></div>
+        <div class="impact-projects" aria-label="Four interactive data analyst projects">
+          <article class="impact-project" data-case>
+            <header class="impact-project__head"><span class="case-number">01</span><div><span class="case-type">DATA ANALYST · AUTOMOTIVE PARTS</span><h3>Parts Demand Forecasting</h3></div><strong class="impact-number">+20%<small>forecast accuracy</small></strong></header>
+            <div class="case-story"><div><b>Before</b><p>Stockouts put sales at risk while slow-moving parts tied up working capital.</p></div><div><b>Built</b><p>A Python and SQL forecast by part family, with actuals, error bands, and exception flags.</p></div><div><b>After</b><p>Planners got a clearer weekly reorder signal and 20% better forecast accuracy.</p></div></div>
+            <div class="case-tools"><span>Python</span><span>SQL</span><span>Time series</span><span>Excel</span></div>
+            <div class="case-demo">
+              <div class="case-controls" role="group" aria-label="Parts demand views"><button type="button" class="case-control" data-case-target="forecast" aria-pressed="true">Forecast vs actual</button><button type="button" class="case-control" data-case-target="action" aria-pressed="false">Planner action</button></div>
+              <div class="case-view is-visible" data-case-view="forecast">
+                <div class="chart-head"><span>Weekly demand · units</span><output class="chart-readout" aria-live="polite">Hover or focus a point</output></div>
+                <svg class="line-chart" viewBox="0 0 700 220" role="img" aria-label="Illustrative twelve-week actual and forecast demand trend">
+                  <g class="chart-grid"><path d="M44 30H674M44 85H674M44 140H674M44 195H674"/></g>
+                  <polyline class="series series--actual" points="44,164 101,146 158,153 215,122 272,131 329,96 386,106 443,72 500,83 557,54 614,62 671,41"/>
+                  <polyline class="series series--forecast" points="44,158 101,151 158,142 215,129 272,119 329,108 386,96 443,82 500,72 557,62 614,52 671,45"/>
+                  <g class="chart-points" aria-label="Actual demand points"><circle tabindex="0" data-point="Week 1 · Actual 412 · Forecast 425" cx="44" cy="164" r="6"/><circle tabindex="0" data-point="Week 2 · Actual 448 · Forecast 438" cx="101" cy="146" r="6"/><circle tabindex="0" data-point="Week 3 · Actual 434 · Forecast 456" cx="158" cy="153" r="6"/><circle tabindex="0" data-point="Week 4 · Actual 496 · Forecast 482" cx="215" cy="122" r="6"/><circle tabindex="0" data-point="Week 5 · Actual 478 · Forecast 501" cx="272" cy="131" r="6"/><circle tabindex="0" data-point="Week 6 · Actual 548 · Forecast 523" cx="329" cy="96" r="6"/><circle tabindex="0" data-point="Week 7 · Actual 528 · Forecast 547" cx="386" cy="106" r="6"/><circle tabindex="0" data-point="Week 8 · Actual 596 · Forecast 575" cx="443" cy="72" r="6"/><circle tabindex="0" data-point="Week 9 · Actual 574 · Forecast 594" cx="500" cy="83" r="6"/><circle tabindex="0" data-point="Week 10 · Actual 632 · Forecast 615" cx="557" cy="54" r="6"/><circle tabindex="0" data-point="Week 11 · Actual 616 · Forecast 636" cx="614" cy="62" r="6"/><circle tabindex="0" data-point="Week 12 · Actual 658 · Forecast 651" cx="671" cy="41" r="6"/></g>
+                </svg>
+                <div class="chart-legend"><span><i class="actual"></i>Actual</span><span><i class="forecast"></i>Forecast</span><small>Representative case data for interaction</small></div>
               </div>
-              <div class="view-toolbar" aria-label="Apple dashboard views"><button class="view-button" aria-pressed="true" data-view="overview">Trend</button><button class="view-button" aria-pressed="false" data-view="returns">Return extremes</button><button class="view-button" aria-pressed="false" data-view="volume">Volume</button></div>
-              <div class="view-content is-visible" data-view-content="overview">
-                <figure class="chart-frame"><img src="assets/asset-01.png" alt="Line chart of Apple daily close price and 20-day moving average from February 2015 to February 2017" /><figcaption>Daily close with 20-day moving average. Close moved from $127.83 to $135.35; observed range $90.34–$135.51.</figcaption></figure>
-                <aside class="insight-card"><h4>Analyst readout</h4><p>Only 49.9% of return-days were positive. The +10.1% gain came from positive moves outweighing negative moves in magnitude.</p><p>Volume faded as price recovered: the first-20-day average was 58.6M shares versus 32.8M in the final 20 days.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="returns">
-                <div><h4>Top 5 up days</h4><ol class="rank-list"><li><b>01</b><span>2016-07-27</span><strong>+6.50%</strong></li><li><b>02</b><span>2017-02-01</span><strong>+6.10%</strong></li><li><b>03</b><span>2015-08-26</span><strong>+5.74%</strong></li><li><b>04</b><span>2016-01-22</span><strong>+5.32%</strong></li><li><b>05</b><span>2015-09-02</span><strong>+4.29%</strong></li></ol></div>
-                <div><h4>Top 5 down days</h4><ol class="rank-list"><li><b>01</b><span>2016-01-27</span><strong>−6.57%</strong></li><li><b>02</b><span>2016-04-27</span><strong>−6.26%</strong></li><li><b>03</b><span>2015-08-21</span><strong>−6.12%</strong></li><li><b>04</b><span>2015-08-11</span><strong>−5.20%</strong></li><li><b>05</b><span>2015-09-01</span><strong>−4.47%</strong></li></ol></div>
-              </div>
-              <div class="view-content" data-view-content="volume">
-                <div class="compare-bars"><div class="compare-row"><span>2015-08-24</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>162.2M</b></div><div class="compare-row"><span>2016-01-27</span><span class="bar-track"><span class="bar-fill" style="--w:82.2%"></span></span><b>133.4M</b></div><div class="compare-row"><span>2015-08-21</span><span class="bar-track"><span class="bar-fill" style="--w:79.1%"></span></span><b>128.3M</b></div><div class="compare-row"><span>2015-08-04</span><span class="bar-track"><span class="bar-fill" style="--w:76.5%"></span></span><b>124.1M</b></div><div class="compare-row"><span>2015-04-28</span><span class="bar-track"><span class="bar-fill" style="--w:73.3%"></span></span><b>118.9M</b></div></div>
-                <aside class="insight-card"><h4>Peak activity</h4><p>The highest-volume session was 2015-08-24 at 162,206,300 shares.</p><p>Average volume across the complete period was 43,178,421 shares per day.</p></aside>
-              </div>
-              <p class="data-note">Source: plotly/datasets · 506 rows × 11 columns · Python/pandas analysis</p>
+              <div class="case-view" data-case-view="action"><div class="decision-grid"><div><strong>18</strong><span>parts to expedite</span></div><div><strong>31</strong><span>orders to rebalance</span></div><div><strong>7</strong><span>slow movers to pause</span></div></div><p class="case-note">A weekly exception queue turns model output into a short, workable planning list. Counts are illustrative.</p></div>
             </div>
           </article>
 
-          <article class="dashboard-panel" id="panel-diamonds" role="tabpanel" aria-labelledby="tab-diamonds" data-panel="diamonds" hidden>
-            <header class="dashboard-head">
-              <div><p class="dashboard-kicker">02 · PRODUCT ANALYTICS · RETAIL PRICING</p><h3>Diamond Pricing Analytics</h3><p>A project uncovering what truly drives diamond prices across 53,940 stones — analyzing the interplay of carat, cut, color, and clarity to find pricing patterns and market surprises. This analysis revealed a striking composition effect: Ideal-cut diamonds show the lowest median price ($1,813) not from lower quality, but because they skew smaller — with carat alone correlating 0.922 with price.</p><p><strong>Tools:</strong> Python (pandas, matplotlib)<br /><strong>Analysis:</strong> EDA, Correlation Analysis, Segmentation</p></div>
-              <div class="source-stack"><a class="source-link" href="https://www.kaggle.com/datasets/shivam2503/diamonds" target="_blank" rel="noreferrer">Kaggle dataset ↗</a><a class="source-link" href="https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv" target="_blank" rel="noreferrer">Analyzed CSV ↗</a></div>
-            </header>
-            <div class="dashboard-body">
-              <div class="metric-grid">
-                <div class="metric" tabindex="0" data-tip="53,940 raw rows minus 146 exact duplicates and 19 quarantined zero-dimension rows."><span class="metric__value" data-count="53775" data-format="comma">53,775</span><span class="metric__label">clean rows</span></div>
-                <div class="metric" tabindex="0" data-tip="Median is more robust than the mean for this right-skewed distribution."><span class="metric__value" data-count="2401" data-prefix="$" data-format="comma">$2,401</span><span class="metric__label">median price</span></div>
-                <div class="metric" tabindex="0" data-tip="Mean sits 64% above median due to the long upper price tail."><span class="metric__value" data-count="3933" data-prefix="$" data-format="comma">$3,933</span><span class="metric__label">mean price</span></div>
-                <div class="metric" tabindex="0" data-tip="Pearson correlation between carat weight and price."><span class="metric__value" data-count="0.922">0.922</span><span class="metric__label">carat–price correlation</span></div>
-                <div class="metric" tabindex="0" data-tip="Observed minimum and maximum price after cleaning."><span class="metric__value">$326–$18,823</span><span class="metric__label">price range</span></div>
-              </div>
-              <div class="view-toolbar" aria-label="Diamond dashboard views"><button class="view-button" aria-pressed="true" data-view="overview">Cut analysis</button><button class="view-button" aria-pressed="false" data-view="comparison">Ranked medians</button><button class="view-button" aria-pressed="false" data-view="largest">Largest stones</button></div>
-              <div class="view-content is-visible" data-view-content="overview">
-                <figure class="chart-frame"><img src="assets/asset-02.png" alt="Bar chart comparing median diamond price by cut quality" /><figcaption>Median price by cut. The apparent premium for Fair reflects the size mix—not superior quality.</figcaption></figure>
-                <aside class="insight-card"><h4>Composition effect</h4><p>Ideal has the lowest median price at $1,813 versus Fair at $3,282 because Ideal stones skew smaller. Segment composition can reverse the story told by a simple aggregate.</p><p>Carat weight is the dominant price signal: correlation 0.922.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="comparison">
-                <div class="compare-bars"><div class="compare-row"><span>Fair</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>$3,282</b></div><div class="compare-row"><span>Premium</span><span class="bar-track"><span class="bar-fill" style="--w:96.9%"></span></span><b>$3,180</b></div><div class="compare-row"><span>Good</span><span class="bar-track"><span class="bar-fill" style="--w:92.6%"></span></span><b>$3,038</b></div><div class="compare-row"><span>Very Good</span><span class="bar-track"><span class="bar-fill" style="--w:80.7%"></span></span><b>$2,647</b></div><div class="compare-row"><span>Ideal</span><span class="bar-track"><span class="bar-fill" style="--w:55.2%"></span></span><b>$1,813</b></div></div>
-                <aside class="insight-card"><h4>Interpret carefully</h4><p>These bars compare unadjusted medians. They should not be read as a causal quality premium because carat distributions differ sharply by cut.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="largest">
-                <div><h4>Top 5 largest stones</h4><ol class="rank-list"><li><b>01</b><span>5.01 ct · Fair / J / I1</span><strong>$18,018</strong></li><li><b>02</b><span>4.50 ct · Fair / J / I1</span><strong>$18,531</strong></li><li><b>03</b><span>4.13 ct · Fair / H / I1</span><strong>$17,329</strong></li><li><b>04</b><span>4.01 ct · Premium / I / I1</span><strong>$15,223</strong></li><li><b>05</b><span>4.01 ct · Premium / J / I1</span><strong>$15,223</strong></li></ol></div>
-                <aside class="insight-card"><h4>Largest observation</h4><p>The largest stone is 5.01 ct, Fair cut, J colour, I1 clarity, priced at $18,018.</p></aside>
-              </div>
-              <p class="data-note">Source: seaborn-data · 53,940 raw rows × 10 columns · 53,775 rows after production cleaning</p>
-            </div>
+          <article class="impact-project" data-case>
+            <header class="impact-project__head"><span class="case-number">02</span><div><span class="case-type">DATA ANALYST · SALES OPERATIONS</span><h3>Executive Sales KPI Dashboard</h3></div><strong class="impact-number">−40%<small>reporting effort</small></strong></header>
+            <div class="case-story"><div><b>Before</b><p>Leaders waited for manually assembled spreadsheets and debated whose numbers were right.</p></div><div><b>Built</b><p>A Power BI model with governed sales measures, targets, trends, and regional drill-downs.</p></div><div><b>After</b><p>Recurring reporting effort fell 40%, while KPI visibility improved 30%.</p></div></div>
+            <div class="case-tools"><span>Power BI</span><span>DAX</span><span>SQL</span><span>Power Query</span></div>
+            <div class="case-demo"><p class="demo-instruction">Select a KPI to read the management signal.</p><div class="kpi-picker" role="group" aria-label="Sales KPI selector"><button type="button" data-kpi="Revenue" data-value="$2.48M" data-change="8.4% above plan" data-note="Growth is led by Central and West; inspect discount depth before raising the quarter outlook." aria-pressed="true"><span>Revenue</span><strong>$2.48M</strong><small>+8.4% vs plan</small></button><button type="button" data-kpi="Gross margin" data-value="31.2%" data-change="2.1 pts above plan" data-note="Mix improved, but two high-volume products remain below the floor margin." aria-pressed="false"><span>Gross margin</span><strong>31.2%</strong><small>+2.1 pts</small></button><button type="button" data-kpi="Fill rate" data-value="94.6%" data-change="3.2 pts better" data-note="Service recovered after prioritizing constrained parts by customer and order value." aria-pressed="false"><span>Fill rate</span><strong>94.6%</strong><small>+3.2 pts</small></button></div><div class="kpi-readout" aria-live="polite"><span>Revenue</span><strong>$2.48M</strong><b>8.4% above plan</b><p>Growth is led by Central and West; inspect discount depth before raising the quarter outlook.</p></div><p class="case-note">Dashboard values are representative of the portfolio case, not employer reporting.</p></div>
           </article>
 
-          <article class="dashboard-panel" id="panel-flights" role="tabpanel" aria-labelledby="tab-flights" data-panel="flights" hidden>
-            <header class="dashboard-head">
-              <div><p class="dashboard-kicker">03 · DEMAND PLANNING · 1949–1960</p><h3>Airline Demand Forecasting</h3><p>An end-to-end time series analysis of airline passenger demand from 1949 to 1960 to quantify growth and seasonality for capacity planning. This analysis measured 275.9% total growth at a 12.8% CAGR, with a 50.9% seasonal swing between July peaks and November troughs — the foundation of a reliable demand forecasting model.</p><p><strong>Tools:</strong> Python (pandas, matplotlib)<br /><strong>Analysis:</strong> EDA, Time Series Decomposition, Seasonality Analysis</p></div>
-              <a class="source-link" href="https://raw.githubusercontent.com/mwaskom/seaborn-data/master/flights.csv" target="_blank" rel="noreferrer">Source dataset ↗</a>
-            </header>
-            <div class="dashboard-body">
-              <div class="metric-grid">
-                <div class="metric" tabindex="0" data-tip="Twelve complete years of monthly observations."><span class="metric__value" data-count="144">144</span><span class="metric__label">months</span></div>
-                <div class="metric" tabindex="0" data-tip="Annual total increased from 1,520 to 5,714."><span class="metric__value" data-count="275.9" data-prefix="+" data-suffix="%">+275.9%</span><span class="metric__label">total growth</span></div>
-                <div class="metric" tabindex="0" data-tip="Compound annual growth rate, 1949 to 1960."><span class="metric__value" data-count="12.8" data-suffix="%">12.8%</span><span class="metric__label">CAGR</span></div>
-                <div class="metric" tabindex="0" data-tip="July and August tie at an average of 351; July is shown as the primary peak month."><span class="metric__value">July · 351</span><span class="metric__label">peak month average</span></div>
-                <div class="metric" tabindex="0" data-tip="Peak average 351 versus trough average 233."><span class="metric__value" data-count="50.9" data-suffix="%">50.9%</span><span class="metric__label">seasonal swing</span></div>
-              </div>
-              <div class="view-toolbar" aria-label="Flights dashboard views"><button class="view-button" aria-pressed="true" data-view="overview">Trend + seasonality</button><button class="view-button" aria-pressed="false" data-view="seasonality">Seasonal profile</button><button class="view-button" aria-pressed="false" data-view="records">Peak months</button></div>
-              <div class="view-content is-visible" data-view-content="overview">
-                <figure class="chart-frame"><img src="assets/asset-03.png" alt="Monthly airline passenger time series from 1949 to 1960 and average passengers by month" /><figcaption>Annual growth and monthly seasonality compound: every year exceeded the previous one, with demand peaking in summer.</figcaption></figure>
-                <aside class="insight-card"><h4>Planning signal</h4><p>Annual passengers increased from 1,520 in 1949 to 5,714 in 1960. Every single year beat the prior year.</p><p>July averaged 351 passengers versus 233 in November—a 50.9% staffing and capacity swing.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="seasonality">
-                <div class="compare-bars"><div class="compare-row"><span>July</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>351</b></div><div class="compare-row"><span>August</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>351</b></div><div class="compare-row"><span>June</span><span class="bar-track"><span class="bar-fill" style="--w:88.9%"></span></span><b>312</b></div><div class="compare-row"><span>September</span><span class="bar-track"><span class="bar-fill" style="--w:86.0%"></span></span><b>302</b></div><div class="compare-row"><span>November</span><span class="bar-track"><span class="bar-fill" style="--w:66.4%"></span></span><b>233</b></div></div>
-                <aside class="insight-card"><h4>Forecast baseline</h4><p>The clean separation of growth and seasonality makes seasonal-naive forecasting a strong benchmark before introducing more complex models.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="records">
-                <div><h4>Top 5 months</h4><ol class="rank-list"><li><b>01</b><span>July 1960</span><strong>622</strong></li><li><b>02</b><span>August 1960</span><strong>606</strong></li><li><b>03</b><span>August 1959</span><strong>559</strong></li><li><b>04</b><span>July 1959</span><strong>548</strong></li><li><b>05</b><span>June 1960</span><strong>535</strong></li></ol></div>
-                <aside class="insight-card"><h4>Busiest month</h4><p>July 1960 reached 622 passengers. All five peak observations are summer months from the final two years.</p></aside>
-              </div>
-              <p class="data-note">Source: seaborn-data · 144 monthly observations · Python/pandas analysis</p>
-            </div>
+          <article class="impact-project" data-case>
+            <header class="impact-project__head"><span class="case-number">03</span><div><span class="case-type">DATA ANALYST · PROFITABILITY</span><h3>Product Margin &amp; Cost Analysis</h3></div><strong class="impact-number">15%<small>savings identified</small></strong></header>
+            <div class="case-story"><div><b>Before</b><p>Margin erosion was visible in the total, but pricing, freight, discount, and product-mix causes were not.</p></div><div><b>Built</b><p>A SQL and Power BI margin bridge from invoice revenue to contribution by product family.</p></div><div><b>After</b><p>The review isolated 15% in cost-saving opportunities for focused action.</p></div></div>
+            <div class="case-tools"><span>SQL</span><span>Power BI</span><span>Excel</span><span>Cost modeling</span></div>
+            <div class="case-demo"><div class="case-controls" role="group" aria-label="Margin analysis views"><button type="button" class="case-control" data-case-target="leak" aria-pressed="true">Margin leak</button><button type="button" class="case-control" data-case-target="opportunity" aria-pressed="false">Savings plan</button></div><div class="case-view is-visible" data-case-view="leak"><div class="hbar"><span>Freight</span><i style="--bar:88%"></i><b>−4.8 pts</b></div><div class="hbar"><span>Discounts</span><i style="--bar:67%"></i><b>−3.6 pts</b></div><div class="hbar"><span>Material cost</span><i style="--bar:54%"></i><b>−2.9 pts</b></div><div class="hbar"><span>Product mix</span><i style="--bar:39%"></i><b>−2.1 pts</b></div></div><div class="case-view" data-case-view="opportunity"><div class="decision-list"><div><span>Renegotiate high-cost freight lanes</span><strong>High value</strong></div><div><span>Set discount approval threshold</span><strong>Quick win</strong></div><div><span>Review low-margin SKUs</span><strong>Targeted</strong></div></div></div><p class="case-note">Driver mix is illustrative; the 15% opportunity reflects the stated portfolio outcome.</p></div>
           </article>
 
-          <article class="dashboard-panel" id="panel-etl" role="tabpanel" aria-labelledby="tab-etl" data-panel="etl" hidden>
-            <header class="dashboard-head">
-              <div><p class="dashboard-kicker">07 · DATA ENGINEERING · PYTHON → SQLITE</p><h3>ETL Pipeline with Data Quality</h3><p>An end-to-end data engineering project building a real ETL pipeline: extracting raw diamond data, transforming and validating it through 19 data-quality checks, and loading it into a SQLite warehouse. This pipeline refined 53,940 raw rows into a trusted 53,775-row dataset with 19/19 quality checks passing.</p><p><strong>Tools:</strong> Python, SQLite<br /><strong>Analysis:</strong> ETL, Data Quality Checks, Data Modeling</p></div>
-              <div class="source-stack"><a class="source-link" href="https://www.kaggle.com/datasets/shivam2503/diamonds" target="_blank" rel="noreferrer">Kaggle source ↗</a><a class="source-link" href="https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv" target="_blank" rel="noreferrer">Pipeline input ↗</a></div>
-            </header>
-            <div class="dashboard-body">
-              <div class="metric-grid">
-                <div class="metric" tabindex="0" data-tip="Raw CSV rows read during extract."><span class="metric__value" data-count="53940" data-format="comma">53,940</span><span class="metric__label">rows extracted</span></div>
-                <div class="metric" tabindex="0" data-tip="Exact duplicate records removed before quality checks."><span class="metric__value" data-count="146">146</span><span class="metric__label">duplicates removed</span></div>
-                <div class="metric" tabindex="0" data-tip="Zero-dimension records retained in a separate audit table."><span class="metric__value" data-count="19">19</span><span class="metric__label">rows quarantined</span></div>
-                <div class="metric" tabindex="0" data-tip="All null, duplicate, range, and category checks passed."><span class="metric__value">19 / 19</span><span class="metric__label">DQ checks passed</span></div>
-                <div class="metric" tabindex="0" data-tip="Rows loaded to diamonds_clean."><span class="metric__value" data-count="53775" data-format="comma">53,775</span><span class="metric__label">fact rows loaded</span></div>
-              </div>
-              <div class="view-toolbar" aria-label="ETL project views"><button class="view-button" aria-pressed="true" data-view="overview">Pipeline flow</button><button class="view-button" aria-pressed="false" data-view="quality">Quality checks</button><button class="view-button" aria-pressed="false" data-view="schema">Warehouse schema</button></div>
-              <div class="view-content is-visible" data-view-content="overview">
-                <div style="grid-column:1/-1"><div class="pipeline-flow"><article class="pipeline-step"><span>01</span><h4>Extract</h4><p>CSV · 53,940 rows × 10 columns</p></article><article class="pipeline-step"><span>02</span><h4>Transform</h4><p>Type coercion, dedupe, category standards, quarantine, price_per_carat and volume_mm3</p></article><article class="pipeline-step"><span>03</span><h4>Validate</h4><p>19 null, duplicate, range, dimension, and category checks</p></article><article class="pipeline-step"><span>04</span><h4>Load</h4><p>SQLite fact, aggregate mart, DQ report, and quarantine audit</p></article></div><aside class="insight-card"><h4>Engineering decision</h4><p>Invalid dimension rows are quarantined—not silently discarded—so every exclusion remains traceable. The DQ report is also stored as a warehouse table, making data health queryable alongside analytical outputs.</p></aside></div>
-              </div>
-              <div class="view-content" data-view-content="quality">
-                <div class="compare-bars"><div class="compare-row"><span>Null checks</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>12 / 12</b></div><div class="compare-row"><span>Duplicates</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>0 left</b></div><div class="compare-row"><span>Price</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>$326–$18,823</b></div><div class="compare-row"><span>Carat</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>0.2–5.01</b></div><div class="compare-row"><span>Depth / table</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>in range</b></div></div>
-                <aside class="insight-card"><h4>Run result: PASS</h4><p>0.000% nulls across all 12 output columns, zero post-clean duplicates, valid numeric ranges, positive dimensions, and no unknown cut values.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="schema">
-                <div><div class="schema-grid"><div class="schema-table"><b>diamonds_clean</b><span>53,775 rows · analytical fact table</span></div><div class="schema-table"><b>cut_summary</b><span>5 rows · pre-aggregated mart</span></div><div class="schema-table"><b>dq_report</b><span>19 rows · auditable checks</span></div><div class="schema-table"><b>quarantine_zero_dimension</b><span>19 rows · excluded records</span></div></div><div class="download-row"><a class="download-link" href="assets/etl-pipeline.py" download>Download Python pipeline</a><a class="download-link" href="assets/etl-run-log.txt" download>Download run log</a><a class="download-link" href="assets/warehouse.sqlite" download>Download SQLite warehouse</a></div></div>
-                <aside class="insight-card"><h4>Reproducible artifact</h4><p>The downloadable database is the verified output of the run shown here; the script rebuilds it idempotently from the source CSV.</p></aside>
-              </div>
-              <p class="data-note">Last analyzed: 2026-09-24 · Python 3.12 · pandas 2.1.4 · SQLite</p>
-            </div>
-          </article>
-
-          <article class="dashboard-panel" id="panel-superstore" role="tabpanel" aria-labelledby="tab-superstore" data-panel="superstore" hidden>
-            <header class="dashboard-head">
-              <div><p class="dashboard-kicker">04 · RETAIL ANALYTICS · 2015-01-03 TO 2018-12-30</p><h3>Superstore Sales &amp; Profitability</h3><p>An end-to-end retail analytics project diagnosing profitability across $2.3M in sales to find where margin is won and lost. This analysis exposed that over-discounting destroys margin — loss-making orders averaged 48.1% discount versus 8.1% on profitable ones — and that Technology earns a 17.4% margin while Furniture earns just 2.5%, guiding pricing and assortment strategy.</p><p><strong>Tools:</strong> Python (pandas, matplotlib)<br /><strong>Analysis:</strong> EDA, Profitability Analysis, Discount Impact Analysis</p></div>
-              <a class="source-link" href="https://raw.githubusercontent.com/leonism/sample-superstore/master/data/superstore.csv" target="_blank" rel="noreferrer">Source dataset ↗</a>
-            </header>
-            <div class="dashboard-body">
-              <div class="metric-grid">
-                <div class="metric" tabindex="0" data-tip="Total sales across the complete source file."><span class="metric__value">$2,297,200.86</span><span class="metric__label">total sales</span></div>
-                <div class="metric" tabindex="0" data-tip="Total profit across the complete source file."><span class="metric__value">$286,397.02</span><span class="metric__label">total profit</span></div>
-                <div class="metric" tabindex="0" data-tip="Profit divided by sales."><span class="metric__value" data-count="12.47" data-suffix="%">12.47%</span><span class="metric__label">overall margin</span></div>
-                <div class="metric" tabindex="0" data-tip="Unique orders represented in the dataset."><span class="metric__value" data-count="5015" data-format="comma">5,015</span><span class="metric__label">orders</span></div>
-                <div class="metric" tabindex="0" data-tip="Unique customer records."><span class="metric__value" data-count="793">793</span><span class="metric__label">customers</span></div>
-              </div>
-              <div class="view-toolbar" aria-label="Superstore dashboard views"><button class="view-button" aria-pressed="true" data-view="overview">Sales trend</button><button class="view-button" aria-pressed="false" data-view="profitability">Profitability</button><button class="view-button" aria-pressed="false" data-view="discounts">Discount risk</button></div>
-              <div class="view-content is-visible" data-view-content="overview">
-                <figure class="chart-frame"><img src="assets/asset-05.png" alt="Monthly Superstore sales and profit trend from 2015 through 2018" /><figcaption>Sales accelerated after 2016: +29.5% in 2017 and +20.4% in 2018. Total sales were $2,297,200.86.</figcaption></figure>
-                <aside class="insight-card"><h4>Growth with a margin question</h4><p>Revenue momentum strengthened, but performance was uneven beneath the total. November 2018 was the strongest sales month at $118,448.</p><p>The decision opportunity is not simply more volume—it is protecting the mix and discount discipline behind that growth.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="profitability">
-                <figure class="chart-frame"><img src="assets/asset-08.png" alt="Horizontal bar chart of Superstore profit by top eight sub-categories" /><figcaption>Copiers lead profit at $55,617.82, while Tables are the largest loss-maker at −$17,725.48.</figcaption></figure>
-                <aside class="insight-card"><h4>Where value concentrates</h4><p>Technology delivers a 17.40% margin versus only 2.49% for Furniture. West leads regions at 14.94%; Central trails at 7.92%.</p><p>Tables, Bookcases, and Supplies are loss-making sub-categories and require pricing or assortment review.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="discounts">
-                <div class="compare-bars"><div class="compare-row"><span>Loss rows</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>0.481</b></div><div class="compare-row"><span>Profit rows</span><span class="bar-track"><span class="bar-fill" style="--w:16.8%"></span></span><b>0.081</b></div><div class="compare-row"><span>2017 growth</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>+29.5%</b></div><div class="compare-row"><span>2018 growth</span><span class="bar-track"><span class="bar-fill" style="--w:69.2%"></span></span><b>+20.4%</b></div></div>
-                <aside class="insight-card"><h4>Discounts destroy margin</h4><p>Discount and profit correlate at −0.219. The 17.3% of rows that lose money average a 0.481 discount versus only 0.081 on profitable rows.</p><p>This is a clear candidate for discount guardrails segmented by product and region.</p></aside>
-              </div>
-              <p class="data-note">Source: leonism/sample-superstore · 10,800 rows × 21 columns · Python/pandas analysis</p>
-            </div>
-          </article>
-
-          <article class="dashboard-panel" id="panel-churn" role="tabpanel" aria-labelledby="tab-churn" data-panel="churn" hidden>
-            <header class="dashboard-head">
-              <div><p class="dashboard-kicker">05 · CUSTOMER ANALYTICS · RETENTION</p><h3>Telco Customer Churn Analytics</h3><p>A project focused on predicting and reducing customer churn for a telecom company by identifying the strongest churn drivers across 7,043 customers. This analysis found month-to-month contracts churn at 42.7% versus 2.8% for two-year contracts, and electronic-check payers churn at 45.3% — clear levers for a targeted retention strategy.</p><p><strong>Tools:</strong> Python (pandas, matplotlib)<br /><strong>Analysis:</strong> EDA, Driver Analysis, Segmentation</p></div>
-              <a class="source-link" href="https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv" target="_blank" rel="noreferrer">IBM source dataset ↗</a>
-            </header>
-            <div class="dashboard-body">
-              <div class="metric-grid">
-                <div class="metric" tabindex="0" data-tip="1,869 of 7,043 customers churned."><span class="metric__value" data-count="26.54" data-suffix="%">26.54%</span><span class="metric__label">overall churn</span></div>
-                <div class="metric" tabindex="0" data-tip="Churn among month-to-month contracts."><span class="metric__value" data-count="42.7" data-suffix="%">42.7%</span><span class="metric__label">month-to-month churn</span></div>
-                <div class="metric" tabindex="0" data-tip="Churn among fiber optic customers."><span class="metric__value" data-count="41.9" data-suffix="%">41.9%</span><span class="metric__label">fiber optic churn</span></div>
-                <div class="metric" tabindex="0" data-tip="Churn among customers in their first twelve months."><span class="metric__value" data-count="47.7" data-suffix="%">47.7%</span><span class="metric__label">0–12 month churn</span></div>
-                <div class="metric" tabindex="0" data-tip="Average monthly charge among churned customers."><span class="metric__value" data-count="74.44" data-prefix="$">$74.44</span><span class="metric__label">churned avg monthly charge</span></div>
-              </div>
-              <div class="view-toolbar" aria-label="Customer churn dashboard views"><button class="view-button" aria-pressed="true" data-view="overview">Contract risk</button><button class="view-button" aria-pressed="false" data-view="tenure">Tenure</button><button class="view-button" aria-pressed="false" data-view="drivers">Risk drivers</button></div>
-              <div class="view-content is-visible" data-view-content="overview">
-                <figure class="chart-frame"><img src="assets/asset-04.png" alt="Bar chart showing churn rate by contract type" /><figcaption>Month-to-month churn is 42.7% compared with 11.3% for one-year and 2.8% for two-year contracts.</figcaption></figure>
-                <aside class="insight-card"><h4>The largest segment is the riskiest</h4><p>Month-to-month customers are 55.0% of the base, making contract migration the clearest retention lever.</p><p>Two-year churn is only 2.8%, suggesting a strong relationship between commitment and retention.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="tenure">
-                <figure class="chart-frame"><img src="assets/asset-09.png" alt="Histogram comparing tenure distribution for churned and retained customers" /><figcaption>Churned customers average 18.0 months of tenure versus 37.6 months for retained customers.</figcaption></figure>
-                <aside class="insight-card"><h4>The first year is the danger zone</h4><p>Customers at 0–12 months churn at 47.7%; that rate falls to 9.5% at 49–72 months.</p><p>Onboarding, early-life support, and first-year value realization should be measured as one retention journey.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="drivers">
-                <div class="compare-bars"><div class="compare-row"><span>Electronic check</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>45.3%</b></div><div class="compare-row"><span>Fiber optic</span><span class="bar-track"><span class="bar-fill" style="--w:92.5%"></span></span><b>41.9%</b></div><div class="compare-row"><span>Seniors</span><span class="bar-track"><span class="bar-fill" style="--w:92.1%"></span></span><b>41.7%</b></div><div class="compare-row"><span>DSL</span><span class="bar-track"><span class="bar-fill" style="--w:41.9%"></span></span><b>19.0%</b></div><div class="compare-row"><span>Credit-card auto</span><span class="bar-track"><span class="bar-fill" style="--w:33.6%"></span></span><b>15.2%</b></div></div>
-                <aside class="insight-card"><h4>Actionable risk signals</h4><p>Electronic check customers churn at 45.3% versus 15.2% for credit-card auto-pay. Fiber optic churn is 41.9% versus 19.0% for DSL.</p><p>Seniors churn at 41.7% versus 23.6% for non-seniors, supporting targeted service and payment interventions.</p></aside>
-              </div>
-              <p class="data-note">Source: IBM Telco Customer Churn · 7,043 rows × 21 columns · Python/pandas analysis</p>
-            </div>
-          </article>
-
-          <article class="dashboard-panel" id="panel-unrate" role="tabpanel" aria-labelledby="tab-unrate" data-panel="unrate" hidden>
-            <header class="dashboard-head">
-              <div><p class="dashboard-kicker">06 · ECONOMIC TIME SERIES · 1948 TO AUG 2026</p><h3>US Unemployment Rate Analysis</h3><p>A macroeconomic time series analysis of US unemployment from 1948 to the present to understand labor-market cycles and shocks. This analysis captured the COVID spike from 3.6% to 14.8% in just four months — followed by the fastest recovery on record — against a long-run average of 5.65%.</p><p><strong>Tools:</strong> Python (pandas, matplotlib), FRED data<br /><strong>Analysis:</strong> EDA, Time Series Analysis, Cycle Analysis</p></div>
-              <a class="source-link" href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=UNRATE" target="_blank" rel="noreferrer">FRED source dataset ↗</a>
-            </header>
-            <div class="dashboard-body">
-              <div class="metric-grid">
-                <div class="metric" tabindex="0" data-tip="Latest observation in the analyzed dataset: August 2026."><span class="metric__value" data-count="4.1" data-suffix="%">4.1%</span><span class="metric__label">latest · Aug 2026</span></div>
-                <div class="metric" tabindex="0" data-tip="Mean across the full monthly series."><span class="metric__value" data-count="5.65" data-suffix="%">5.65%</span><span class="metric__label">long-run mean</span></div>
-                <div class="metric" tabindex="0" data-tip="COVID shock peak in April 2020."><span class="metric__value" data-count="14.8" data-suffix="%">14.8%</span><span class="metric__label">all-time max · Apr 2020</span></div>
-                <div class="metric" tabindex="0" data-tip="Historical low in May 1953."><span class="metric__value" data-count="2.5" data-suffix="%">2.5%</span><span class="metric__label">all-time min · May 1953</span></div>
-                <div class="metric" tabindex="0" data-tip="Average of the latest twelve observations."><span class="metric__value" data-count="4.30" data-suffix="%">4.30%</span><span class="metric__label">last-12 average</span></div>
-              </div>
-              <div class="view-toolbar" aria-label="Unemployment dashboard views"><button class="view-button" aria-pressed="true" data-view="overview">Long-run trend</button><button class="view-button" aria-pressed="false" data-view="decades">Cycle comparison</button><button class="view-button" aria-pressed="false" data-view="recent">Recent signal</button></div>
-              <div class="view-content is-visible" data-view-content="overview">
-                <figure class="chart-frame"><img src="assets/asset-06.png" alt="Line chart of monthly US unemployment rate from 1948 through August 2026 with major peaks annotated" /><figcaption>FRED UNRATE across 944 monthly rows. The COVID peak reached 14.8% in April 2020.</figcaption></figure>
-                <aside class="insight-card"><h4>An exceptional shock</h4><p>Unemployment jumped from 3.6% in December 2019 to 14.8% four months later, then fell below 6.4% by the end of 2021.</p><p>The speed of both the spike and recovery separates COVID from slower labor-market cycles.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="decades">
-                <div class="compare-bars"><div class="compare-row"><span>1980s</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>7.27%</b></div><div class="compare-row"><span>Long-run</span><span class="bar-track"><span class="bar-fill" style="--w:77.7%"></span></span><b>5.65%</b></div><div class="compare-row"><span>2020s</span><span class="bar-track"><span class="bar-fill" style="--w:65.7%"></span></span><b>4.78%</b></div><div class="compare-row"><span>1950s</span><span class="bar-track"><span class="bar-fill" style="--w:62%"></span></span><b>4.51%</b></div></div>
-                <aside class="insight-card"><h4>Different recession shapes</h4><p>The 1980s were the worst decade at 7.27% average. The 2009–2010 GFC stayed near 9% for two years; COVID produced a far sharper V-shape.</p><p>Despite the COVID peak, the 2020s average 4.78%, below the 5.65% long-run mean.</p></aside>
-              </div>
-              <div class="view-content" data-view-content="recent">
-                <div class="compare-bars"><div class="compare-row"><span>Latest</span><span class="bar-track"><span class="bar-fill" style="--w:91.1%"></span></span><b>4.1%</b></div><div class="compare-row"><span>12-mo low</span><span class="bar-track"><span class="bar-fill" style="--w:91.1%"></span></span><b>4.1%</b></div><div class="compare-row"><span>12-mo avg</span><span class="bar-track"><span class="bar-fill" style="--w:95.6%"></span></span><b>4.30%</b></div><div class="compare-row"><span>12-mo high</span><span class="bar-track"><span class="bar-fill" style="--w:100%"></span></span><b>4.5%</b></div></div>
-                <aside class="insight-card"><h4>Stable, below history</h4><p>The latest twelve observations average 4.30%, with a narrow 4.1%–4.5% range.</p><p>The August 2026 reading of 4.1% remains below the long-run mean of 5.65%.</p></aside>
-              </div>
-              <p class="data-note">Source: Federal Reserve Bank of St. Louis, FRED UNRATE · 944 rows · analyzed through Aug 2026</p>
-            </div>
+          <article class="impact-project" data-case>
+            <header class="impact-project__head"><span class="case-number">04</span><div><span class="case-type">DATA ANALYST · FINANCE</span><h3>Budget vs Actuals Variance Analysis</h3></div><strong class="impact-number">FASTER<small>course correction</small></strong></header>
+            <div class="case-story"><div><b>Before</b><p>Monthly reviews showed the variance, but not the business driver or accountable action.</p></div><div><b>Built</b><p>An Excel and Power BI view separating price, volume, mix, and cost variances.</p></div><div><b>After</b><p>Finance and operations could focus the review on material exceptions and owners.</p></div></div>
+            <div class="case-tools"><span>Excel</span><span>Power BI</span><span>DAX</span><span>Financial modeling</span></div>
+            <div class="case-demo"><div class="case-controls" role="group" aria-label="Budget variance views"><button type="button" class="case-control" data-case-target="variance" aria-pressed="true">Variance drivers</button><button type="button" class="case-control" data-case-target="owners" aria-pressed="false">Action owners</button></div><div class="case-view is-visible" data-case-view="variance"><div class="variance-row"><span>Revenue</span><div><i style="--actual:94%"></i></div><b>−6%</b></div><div class="variance-row"><span>Freight</span><div><i style="--actual:113%"></i></div><b>+13%</b></div><div class="variance-row"><span>Labour</span><div><i style="--actual:104%"></i></div><b>+4%</b></div><div class="variance-row"><span>Marketing</span><div><i style="--actual:87%"></i></div><b>−13%</b></div><small class="baseline-label">Budget baseline = 100%</small></div><div class="case-view" data-case-view="owners"><div class="decision-list"><div><span>Revenue / mix gap</span><strong>Sales</strong></div><div><span>Freight overspend</span><strong>Operations</strong></div><div><span>Labour variance</span><strong>Finance</strong></div></div></div><p class="case-note">Representative monthly variance data; the interaction shows the review workflow.</p></div>
           </article>
         </div>
-        <p class="project-disclosure">These are web-native interactive dashboard views, not Power BI .pbix files. Each project cites its source; the ETL artifacts are linked directly for inspection.</p>
       </section>
 
       <section class="section" id="engineering" aria-labelledby="engineering-title">
-        <div class="section-head">
-          <div class="section-index">04 / Engineering demos</div>
-          <div class="engineering-intro">
-            <h2 id="engineering-title">Four architectures, tested in small local simulations.</h2>
-            <p class="section-intro">Explore the architecture, code patterns, and captured run output for each concept. These are clearly scoped demos—not production deployments—and are designed to show how I reason about scale, reliability, orchestration, modeling, and observability.</p>
-          </div>
+        <div class="section-head"><div class="section-index">04 / Data engineering</div><div class="engineering-intro"><h2 id="engineering-title">Reliable data before the dashboard.</h2><p class="section-intro">Two portfolio implementations that address the recurring causes of slow, inconsistent reporting.</p></div></div>
+        <div class="engineering-list impact-engineering">
+          <details class="engineering-card" open data-case>
+            <summary><span class="de-number">01</span><span class="de-summary-copy"><span class="demo-label">DATA ENGINEERING · REPORTING OPERATIONS</span><h3>Automated Sales Reporting Pipeline</h3><p>Turn scattered weekly extracts into one validated reporting table.</p><span class="tool-tags"><span>Python</span><span>SQL</span><span>ETL</span><span>Scheduling</span></span></span><span class="de-toggle" aria-hidden="true">+</span></summary>
+            <div class="engineering-body"><div class="case-story"><div><b>Before</b><p>Analysts copied files, fixed formats, and reconciled totals before every report.</p></div><div><b>Built</b><p>A scheduled extract, validation, transform, and load workflow with run logging.</p></div><div><b>Value</b><p>Removes repetitive consolidation and makes failures visible before reports refresh.</p></div></div><div class="impact-flow" aria-label="Animated sales reporting pipeline"><span>CRM &amp; ERP</span><i></i><span>Validate</span><i></i><span>Transform</span><i></i><span>Reporting table</span></div><div class="case-controls" role="group" aria-label="Pipeline detail views"><button type="button" class="case-control" data-case-target="run" aria-pressed="true">Run status</button><button type="button" class="case-control" data-case-target="quality" aria-pressed="false">Quality gates</button></div><div class="case-view is-visible" data-case-view="run"><div class="run-strip"><div><strong>04:12</strong><span>latest runtime</span></div><div><strong>PASS</strong><span>load status</span></div><div><strong>0</strong><span>duplicate keys</span></div></div></div><div class="case-view" data-case-view="quality"><div class="decision-list"><div><span>Required fields complete</span><strong>Pass</strong></div><div><span>Order totals reconciled</span><strong>Pass</strong></div><div><span>Duplicate keys blocked</span><strong>Pass</strong></div></div></div><p class="case-note">Portfolio implementation with representative run output; no live enterprise deployment is claimed.</p></div>
+          </details>
+          <details class="engineering-card" data-case>
+            <summary><span class="de-number">02</span><span class="de-summary-copy"><span class="demo-label">DATA ENGINEERING · KPI GOVERNANCE</span><h3>Curated KPI Data Mart</h3><p>Give every sales and finance report the same metric definitions.</p><span class="tool-tags"><span>SQL</span><span>dbt</span><span>Dimensional modeling</span><span>Data quality</span></span></span><span class="de-toggle" aria-hidden="true">+</span></summary>
+            <div class="engineering-body"><div class="case-story"><div><b>Before</b><p>Separate reports calculated revenue, margin, and target attainment differently.</p></div><div><b>Built</b><p>A star schema with reusable measures, tests, and documented business rules.</p></div><div><b>Value</b><p>Creates one governed layer for executive dashboards and recurring analysis.</p></div></div><div class="mart-map" aria-label="KPI data mart model"><div class="fact-table"><b>fact_sales</b><span>date_key</span><span>product_key</span><span>customer_key</span><span>net_revenue</span><span>gross_margin</span></div><div class="dimension-stack"><span>dim_date</span><span>dim_product</span><span>dim_customer</span></div></div><div class="case-controls" role="group" aria-label="Data mart detail views"><button type="button" class="case-control" data-case-target="definitions" aria-pressed="true">Metric definitions</button><button type="button" class="case-control" data-case-target="tests" aria-pressed="false">Model tests</button></div><div class="case-view is-visible" data-case-view="definitions"><div class="decision-list"><div><span>Net revenue</span><strong>Gross − returns − discounts</strong></div><div><span>Gross margin %</span><strong>Margin ÷ net revenue</strong></div><div><span>Attainment</span><strong>Actual ÷ target</strong></div></div></div><div class="case-view" data-case-view="tests"><div class="run-strip"><div><strong>12/12</strong><span>model checks</span></div><div><strong>PASS</strong><span>key uniqueness</span></div><div><strong>PASS</strong><span>referential integrity</span></div></div></div><p class="case-note">Portfolio implementation demonstrating governed modeling patterns with representative test output.</p></div>
+          </details>
         </div>
-
-        <div class="engineering-list">
-          <details class="engineering-card" open>
-            <summary>
-              <span class="de-number">01</span>
-              <span class="de-summary-copy"><span class="demo-label">DEMO / CONCEPT PROJECT</span><h3>Real-Time Streaming with Kafka &amp; Snowflake</h3><p>Keyed event ingestion, tumbling-window aggregation, deduplication, and an analytics-ready sink.</p><span class="tool-tags"><span>Kafka</span><span>Python</span><span>Snowflake</span><span>Streaming</span></span></span>
-              <span class="de-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="engineering-body">
-              <div class="de-toolbar" aria-label="Streaming demo views"><button class="de-view-button" type="button" aria-pressed="true" data-de-view="architecture">Architecture</button><button class="de-view-button" type="button" aria-pressed="false" data-de-view="code">Code highlights</button><button class="de-view-button" type="button" aria-pressed="false" data-de-view="run">Simulation result</button></div>
-              <div class="de-panel is-visible" data-de-panel="architecture"><div class="architecture-layout"><figure class="architecture-figure"><img src="assets/asset-10.svg" alt="Architecture diagram showing event sources flowing through Kafka and a stream processor into Snowflake" /><figcaption>Concept architecture: keyed events flow through a replayable topic into one-minute aggregates for BI.</figcaption></figure><div class="de-flow"><div>Emit JSON events with event-time and customer keys.</div><div>Buffer and partition through Kafka topic <code>events_raw</code>.</div><div>Aggregate counts and revenue in tumbling windows; dedupe by event ID.</div><div>Commit closed windows to Snowflake for dashboard queries.</div></div></div></div>
-              <div class="de-panel" data-de-panel="code"><div class="code-grid"><div class="code-block"><h4>kafka_producer.py</h4><pre><code>producer = KafkaProducer(
-  enable_idempotence=True,
-  acks="all"
-)
-producer.send(
-  "events_raw",
-  key=event["customer_id"],
-  value=event
-)</code></pre></div><div class="code-block"><h4>kafka_consumer.py</h4><pre><code>for event in events:
-  window = floor_to_minute(event["event_time"])
-  if event["event_id"] not in seen:
-    windows[window]["count"] += 1
-    windows[window]["revenue"] += event["amount"]</code></pre></div></div><div class="de-links"><a class="de-link" href="assets/kafka-producer.py" download>Download producer</a><a class="de-link" href="assets/kafka-consumer.py" download>Download consumer</a></div></div>
-              <div class="de-panel" data-de-panel="run"><div class="run-metrics"><div class="run-metric"><strong>2,000</strong><span>events processed</span></div><div class="run-metric"><strong>400/s</strong><span>paced throughput</span></div><div class="run-metric"><strong>5</strong><span>tumbling windows</span></div><div class="run-metric"><strong>$503,270.38</strong><span>aggregated revenue</span></div></div><pre class="run-log">window 01  events=400  revenue=$105,643.55
-window 02  events=400  revenue=$97,366.83
-window 03  events=401  revenue=$100,992.50
-window 04  events=400  revenue=$102,448.00
-window 05  events=399  revenue=$96,819.50
-Duplicates skipped: 0 · simulated Snowflake commit: complete</pre><div class="de-links"><a class="de-link" href="assets/streaming-run-log.txt" download>Download full run log</a></div></div>
-            </div>
-          </details>
-
-          <details class="engineering-card">
-            <summary>
-              <span class="de-number">02</span>
-              <span class="de-summary-copy"><span class="demo-label">DEMO / CONCEPT PROJECT</span><h3>ETL with Airflow &amp; Databricks</h3><p>A retry-aware daily DAG orchestrating bronze-to-silver processing, warehouse load, and hard DQ gates.</p><span class="tool-tags"><span>Airflow</span><span>Databricks</span><span>PySpark</span><span>ETL</span></span></span>
-              <span class="de-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="engineering-body">
-              <div class="de-toolbar" aria-label="Airflow and Databricks demo views"><button class="de-view-button" type="button" aria-pressed="true" data-de-view="architecture">Architecture</button><button class="de-view-button" type="button" aria-pressed="false" data-de-view="code">Code highlights</button><button class="de-view-button" type="button" aria-pressed="false" data-de-view="run">Simulation result</button></div>
-              <div class="de-panel is-visible" data-de-panel="architecture"><div class="architecture-layout"><figure class="architecture-figure"><img src="assets/asset-07.svg" alt="Architecture diagram of an Airflow DAG calling Databricks transformations before warehouse load and quality checks" /><figcaption>Concept DAG with two retries, five-minute backoff, a two-hour SLA, and a blocking quality gate.</figcaption></figure><div class="de-flow"><div>Extract prior-day orders to a bronze landing zone.</div><div>Run a Databricks job to normalize, dedupe, and enrich.</div><div>MERGE silver records into <code>warehouse.fact_orders</code>.</div><div>Fail the DAG if row count, key, duplicate, or total gates fail.</div></div></div></div>
-              <div class="de-panel" data-de-panel="code"><div class="code-grid"><div class="code-block"><h4>sales_etl_dag.py</h4><pre><code>DEFAULT_ARGS = {
-  "retries": 2,
-  "retry_delay": timedelta(minutes=5),
-  "sla": timedelta(hours=2)
-}
-extract_orders &gt;&gt; run_databricks &gt;&gt; load_warehouse &gt;&gt; data_quality</code></pre></div><div class="code-block"><h4>databricks_transform.py</h4><pre><code>silver = bronze.dropna(subset=["order_id"])
-silver = silver.sort_values("order_ts") \
-  .drop_duplicates("order_id", keep="last")
-silver["line_total"] = (
-  silver["quantity"] * silver["unit_price"]
-).round(2)</code></pre></div></div><div class="de-links"><a class="de-link" href="assets/airflow-dag.py" download>Download DAG</a><a class="de-link" href="assets/databricks-notebook.py" download>Download transform</a></div></div>
-              <div class="de-panel" data-de-panel="run"><div class="run-metrics"><div class="run-metric"><strong>1,202</strong><span>bronze rows</span></div><div class="run-metric"><strong>1,199</strong><span>silver + fact rows</span></div><div class="run-metric"><strong>3</strong><span>invalid/duplicate rows removed</span></div><div class="run-metric"><strong>4 / 4</strong><span>DQ gates passed</span></div></div><pre class="run-log">extract_orders      DONE — bronze landing: 1,202 rows
-run_databricks      DONE — silver: 1,199 rows
-                    dropped_no_key=1 · deduped=2
-load_warehouse      DONE — fact_orders: 1,199 rows
-data_quality        PASS — all 4 gates
-DAG status: SUCCESS · 0.72s local simulation</pre><div class="de-links"><a class="de-link" href="assets/asset-08.txt" download>Download full run log</a></div></div>
-            </div>
-          </details>
-
-          <details class="engineering-card">
-            <summary>
-              <span class="de-number">03</span>
-              <span class="de-summary-copy"><span class="demo-label">DEMO / CONCEPT PROJECT</span><h3>Data Warehouse with Snowflake &amp; dbt</h3><p>A layered ELT design that keeps raw data replayable and moves tested business logic into version-controlled models.</p><span class="tool-tags"><span>Snowflake</span><span>dbt</span><span>SQL</span><span>ELT</span></span></span>
-              <span class="de-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="engineering-body">
-              <div class="de-toolbar" aria-label="Snowflake and dbt demo views"><button class="de-view-button" type="button" aria-pressed="true" data-de-view="architecture">Architecture</button><button class="de-view-button" type="button" aria-pressed="false" data-de-view="code">Code highlights</button><button class="de-view-button" type="button" aria-pressed="false" data-de-view="run">Simulation result</button></div>
-              <div class="de-panel is-visible" data-de-panel="architecture"><div class="architecture-layout"><figure class="architecture-figure"><img src="assets/asset-07.svg" alt="Layered data warehouse architecture from Snowflake raw tables through dbt staging and marts to BI" /><figcaption>Concept ELT layers: immutable raw tables, clean staging views, governed marts, and tested BI outputs.</figcaption></figure><div class="de-flow"><div>Land source records unchanged in Snowflake RAW.</div><div>Cast, rename, and filter in one dbt staging model per source.</div><div>Build business-ready revenue and customer marts through <code>ref()</code>.</div><div>Test keys, accepted values, and relationships before BI consumption.</div></div></div></div>
-              <div class="de-panel" data-de-panel="code"><div class="code-grid"><div class="code-block"><h4>staging_orders.sql</h4><pre><code>with source as (
-  select * from {{ source('raw', 'orders') }}
-)
-select order_id, customer_id,
-  cast(order_ts as timestamp) as order_ts,
-  cast(quantity as integer) as quantity
-from source
-where order_id is not null and quantity &gt; 0</code></pre></div><div class="code-block"><h4>mart_revenue.sql</h4><pre><code>with orders as (
-  select * from {{ ref('stg_orders') }}
-)
-select order_date, count(*) as order_count,
-  round(sum(quantity * unit_price), 2) as gross_revenue
-from orders
-group by order_date</code></pre></div></div><div class="de-links"><a class="de-link" href="assets/dbt-stg-orders.sql" download>Download staging model</a><a class="de-link" href="assets/dbt-model.sql" download>Download mart model</a></div></div>
-              <div class="de-panel" data-de-panel="run"><div class="run-metrics"><div class="run-metric"><strong>63</strong><span>raw rows</span></div><div class="run-metric"><strong>61</strong><span>staging rows</span></div><div class="run-metric"><strong>5</strong><span>daily mart rows</span></div><div class="run-metric"><strong>$16,210.21</strong><span>gross revenue</span></div></div><pre class="run-log">source raw.orders     63 rows · landing untouched
-model stg_orders      61 rows · 2 invalid filtered
-model mart_revenue     5 rows · one per order date
-2026-09-23            13 orders · $4,495.35
-2026-09-24            10 orders · $2,026.48
-dbt run: OK — 2 / 2 models built</pre><div class="de-links"><a class="de-link" href="assets/asset-08.txt" download>Download full run log</a></div></div>
-            </div>
-          </details>
-
-          <details class="engineering-card">
-            <summary>
-              <span class="de-number">04</span>
-              <span class="de-summary-copy"><span class="demo-label">DEMO / CONCEPT PROJECT</span><h3>Data Lake on AWS S3 &amp; Redshift</h3><p>An immutable raw zone, partitioned curated layer, and two-speed serving pattern for scalable analytics.</p><span class="tool-tags"><span>AWS S3</span><span>Redshift</span><span>PySpark</span><span>Lakehouse</span></span></span>
-              <span class="de-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="engineering-body">
-              <div class="de-toolbar" aria-label="AWS lakehouse demo views"><button class="de-view-button" type="button" aria-pressed="true" data-de-view="architecture">Architecture</button><button class="de-view-button" type="button" aria-pressed="false" data-de-view="code">Code highlights</button><button class="de-view-button" type="button" aria-pressed="false" data-de-view="run">Simulation result</button></div>
-              <div class="de-panel is-visible" data-de-panel="architecture"><div class="architecture-layout"><figure class="architecture-figure"><img src="assets/asset-07.svg" alt="AWS lakehouse diagram with S3 raw and curated zones feeding Redshift Spectrum and serving tables" /><figcaption>Concept lakehouse: raw events remain immutable while curated Parquet partitions minimize scan cost.</figcaption></figure><div class="de-flow"><div>Land JSON, CSV, or Parquet immutably in S3 RAW.</div><div>Use Spark to type, clean, dedupe, and enrich orders.</div><div>Write Snappy Parquet by year, month, day, and region.</div><div>Query through Spectrum; materialize hot aggregates in Redshift.</div></div></div></div>
-              <div class="de-panel" data-de-panel="code"><div class="code-grid"><div class="code-block"><h4>spark_lakehouse.py</h4><pre><code>curated = (
-  raw.withColumn("order_date", to_date(col("order_ts")))
-     .dropna(subset=["order_id"])
-     .dropDuplicates(["order_id"])
-)
-(curated.write.mode("overwrite")
-  .partitionBy("year", "month", "day", "region")
-  .parquet(curated_path))</code></pre></div><div class="code-block"><h4>Serving pattern</h4><pre><code>CREATE EXTERNAL TABLE spectrum.orders (...)
-STORED AS PARQUET
-LOCATION 's3://lake/curated/orders/';
-
-CREATE MATERIALIZED VIEW bi.orders_by_region AS
-SELECT region, COUNT(*) orders, SUM(line_total) revenue
-FROM spectrum.orders GROUP BY region;</code></pre></div></div><div class="de-links"><a class="de-link" href="assets/pyspark-lakehouse-etl.py" download>Download PySpark pattern</a></div></div>
-              <div class="de-panel" data-de-panel="run"><div class="run-metrics"><div class="run-metric"><strong>502</strong><span>raw JSON records</span></div><div class="run-metric"><strong>494</strong><span>curated rows</span></div><div class="run-metric"><strong>20</strong><span>Hive-style partitions</span></div><div class="run-metric"><strong>$51,863.44</strong><span>top region revenue</span></div></div><pre class="run-log">RAW       502 records · immutable landing
-CURATED   494 rows · 6 null keys dropped · 2 duplicates removed
-SERVING     4 rows · revenue by region
-South     134 orders · $51,863.44
-Central   115 orders · $48,065.55
-Lakehouse promotion complete (simulated)</pre><div class="de-links"><a class="de-link" href="assets/asset-08.txt" download>Download full run log</a></div></div>
-            </div>
-          </details>
-
-        </div>
-        <p class="engineering-note"><strong>Scope note:</strong> each project is a local demo or architecture concept. The diagrams, sample code, and simulation outputs demonstrate engineering decisions and reproducible patterns; they do not represent a deployed production system or claim enterprise-scale usage.</p>
       </section>
 
       <section class="section" id="data-science" aria-labelledby="science-title">
-        <div class="section-head">
-          <div class="section-index">05 / Data science demos</div>
-          <div>
-            <h2 id="science-title">Three models. Real runs. Honest scope.</h2>
-            <p class="section-intro">A focused learning portfolio across imbalanced classification, churn modeling, and regression. Every result below comes from a completed local training or analysis run; each card names the production upgrade path where the demo uses a lighter baseline.</p>
-          </div>
+        <div class="section-head"><div class="section-index">05 / Data science</div><div><h2 id="science-title">Predict risk. Choose the action threshold.</h2><p class="section-intro">One explainable classification case that connects a model score to a retention decision.</p></div></div>
+        <div class="science-grid science-grid--single">
+          <article class="science-card churn-case">
+            <div class="science-case-head"><span class="science-number">01</span><div><span class="demo-label">DATA SCIENCE · PUBLIC-DATA DEMO</span><h3>Customer Churn Prediction</h3><p>Find customers likely to leave early enough for a retention team to act.</p></div><strong class="impact-number">EARLY<small>warning list</small></strong></div>
+            <div class="science-details"><div class="case-story"><div><b>Before</b><p>Retention teams reacted after cancellation, when the customer relationship was already lost.</p></div><div><b>Built</b><p>A Python classification workflow using tenure, contract, charges, and service signals.</p></div><div><b>Value</b><p>Ranks accounts by risk so outreach can focus on the customers most likely to leave.</p></div></div><div class="case-tools"><span>Python</span><span>scikit-learn</span><span>Classification</span><span>Feature importance</span></div><div class="churn-lab"><div><p class="demo-instruction">Choose a score threshold to trade reach for precision.</p><div class="threshold-controls" role="group" aria-label="Churn risk threshold"><button type="button" data-threshold="35" data-count="274" data-precision="68%" data-label="Broader outreach" aria-pressed="true">35%</button><button type="button" data-threshold="50" data-count="171" data-precision="76%" data-label="Balanced queue" aria-pressed="false">50%</button><button type="button" data-threshold="65" data-count="92" data-precision="84%" data-label="Highest-risk first" aria-pressed="false">65%</button></div></div><div class="threshold-output" aria-live="polite"><div><span>Customers flagged</span><strong data-risk-count>274</strong></div><div><span>Expected precision</span><strong data-risk-precision>68%</strong></div><div><span>Action mode</span><strong data-risk-label>Broader outreach</strong></div></div><div class="risk-bar"><i></i><span>Low risk</span><span>High risk</span><b data-risk-marker style="left:35%"></b></div></div><p class="method-line"><strong>Honest scope:</strong> portfolio demonstration using the public IBM Telco Customer Churn dataset; the 1,000-customer threshold simulation is illustrative and no production deployment is claimed.</p></div>
+          </article>
         </div>
-
-        <div class="science-controls" role="group" aria-label="Filter data science projects">
-          <button class="science-filter" type="button" aria-pressed="true" data-science-filter="all">All 3</button>
-          <button class="science-filter" type="button" aria-pressed="false" data-science-filter="modeling">Predictive models</button>
-        </div>
-
-        <div class="science-grid">
-          <details class="science-card" data-science-track="modeling">
-            <summary><span class="science-number">01</span><span class="science-summary"><span class="demo-label">DEMO / CONCEPT PROJECT</span><h3>Credit Card Fraud Detection</h3><p>Detect rare fraud under extreme class imbalance and measure the cost of increasing recall.</p><span class="tool-tags"><span>Python</span><span>scikit-learn</span><span>SMOTE</span></span><span class="science-metric"><strong>0.7273 F1</strong><span>with SMOTE</span></span></span><span class="science-toggle" aria-hidden="true">+</span></summary>
-            <div class="science-details"><div class="science-details-grid"><div class="science-stat"><strong>284,807</strong><span>transactions; 492 fraud (0.173%)</span></div><div class="science-stat"><strong>0.7168</strong><span>baseline fraud F1 · P 0.8267 / R 0.6327</span></div><div class="science-stat"><strong>0.7273</strong><span>SMOTE fraud F1 · P 0.6111 / R 0.8980</span></div></div><p>SMOTE catches substantially more fraud, while lowering precision and increasing false alarms—a genuine operating-threshold tradeoff rather than a one-number win.</p><p class="method-line"><strong>Methods:</strong> Classification, Imbalanced Learning</p></div>
-          </details>
-
-          <details class="science-card" data-science-track="modeling">
-            <summary><span class="science-number">02</span><span class="science-summary"><span class="demo-label">DEMO / CONCEPT PROJECT</span><h3>Customer Churn Prediction</h3><p>Predict service cancellations and surface the customer signals behind the score.</p><span class="tool-tags"><span>Python</span><span>scikit-learn</span><span>Gradient boosting</span></span><span class="science-metric"><strong>0.8355 AUC</strong><span>churn-class F1 0.5764</span></span></span><span class="science-toggle" aria-hidden="true">+</span></summary>
-            <div class="science-details"><div class="science-details-grid"><div class="science-stat"><strong>7,043</strong><span>telco customers</span></div><div class="science-stat"><strong>26.54%</strong><span>observed churn rate</span></div><div class="science-stat"><strong>0.5764</strong><span>churn-class F1</span></div></div><p>A HistGradientBoosting model provides a LightGBM-style baseline. Permutation importance—not SHAP—identified no dependents and no online security as the leading drivers.</p><p class="method-line"><strong>Methods:</strong> Gradient Boosting, Feature Importance</p></div>
-          </details>
-
-
-          <details class="science-card" data-science-track="modeling">
-            <summary><span class="science-number">03</span><span class="science-summary"><span class="demo-label">DEMO / CONCEPT PROJECT</span><h3>House Price Prediction</h3><p>Estimate California housing values with engineered density and household features.</p><span class="tool-tags"><span>Python</span><span>scikit-learn</span><span>Cross-validation</span></span><span class="science-metric"><strong>$63,831 RMSE</strong><span>5-fold CV · R² 0.6695</span></span></span><span class="science-toggle" aria-hidden="true">+</span></summary>
-            <div class="science-details"><div class="science-details-grid"><div class="science-stat"><strong>20,640</strong><span>California census blocks</span></div><div class="science-stat"><strong>$63,831</strong><span>mean CV RMSE</span></div><div class="science-stat"><strong>0.6695</strong><span>mean CV R²</span></div></div><p>Feature engineering added rooms per household, bedrooms per room, and population per household before gradient-boosted regression and five-fold evaluation.</p><p class="method-line"><strong>Methods:</strong> Regression, Feature Engineering, Cross-Validation</p></div>
-          </details>
-
-        </div>
-        <p class="science-note"><strong>Scope note:</strong> these are portfolio demonstrations built from real public datasets and captured model runs. They show applied learning and evaluation—not production deployment or client delivery.</p>
       </section>
 
       <section class="section" id="experience" aria-labelledby="experience-title">
@@ -3057,6 +2823,53 @@ Lakehouse promotion complete (simulated)</pre><div class="de-links"><a class="de
             ripple.style.top = (event.clientY ? event.clientY - rect.top : rect.height / 2) + 'px';
             control.appendChild(ripple);
             window.setTimeout(function () { ripple.remove(); }, 700);
+          });
+        });
+
+        /* Project case-study controls: every control changes a visible decision view. */
+        Array.prototype.forEach.call(document.querySelectorAll('[data-case]'), function (caseStudy) {
+          var controls = Array.prototype.slice.call(caseStudy.querySelectorAll('.case-control'));
+          var views = Array.prototype.slice.call(caseStudy.querySelectorAll('.case-view'));
+          controls.forEach(function (control) {
+            control.addEventListener('click', function () {
+              var target = control.getAttribute('data-case-target');
+              controls.forEach(function (item) { item.setAttribute('aria-pressed', item === control ? 'true' : 'false'); });
+              views.forEach(function (view) { view.classList.toggle('is-visible', view.getAttribute('data-case-view') === target); });
+            });
+          });
+        });
+
+        Array.prototype.forEach.call(document.querySelectorAll('.chart-points circle'), function (point) {
+          var readout = point.closest('.case-view').querySelector('.chart-readout');
+          function showPoint() { if (readout) readout.textContent = point.getAttribute('data-point'); }
+          point.addEventListener('mouseenter', showPoint);
+          point.addEventListener('focus', showPoint);
+        });
+
+        Array.prototype.forEach.call(document.querySelectorAll('.kpi-picker'), function (picker) {
+          var buttons = Array.prototype.slice.call(picker.querySelectorAll('button'));
+          var readout = picker.parentElement.querySelector('.kpi-readout');
+          buttons.forEach(function (button) {
+            button.addEventListener('click', function () {
+              buttons.forEach(function (item) { item.setAttribute('aria-pressed', item === button ? 'true' : 'false'); });
+              if (!readout) return;
+              readout.querySelector('span').textContent = button.getAttribute('data-kpi');
+              readout.querySelector('strong').textContent = button.getAttribute('data-value');
+              readout.querySelector('b').textContent = button.getAttribute('data-change');
+              readout.querySelector('p').textContent = button.getAttribute('data-note');
+            });
+          });
+        });
+
+        var thresholdButtons = Array.prototype.slice.call(document.querySelectorAll('.threshold-controls button'));
+        thresholdButtons.forEach(function (button) {
+          button.addEventListener('click', function () {
+            thresholdButtons.forEach(function (item) { item.setAttribute('aria-pressed', item === button ? 'true' : 'false'); });
+            var lab = button.closest('.churn-lab');
+            lab.querySelector('[data-risk-count]').textContent = button.getAttribute('data-count');
+            lab.querySelector('[data-risk-precision]').textContent = button.getAttribute('data-precision');
+            lab.querySelector('[data-risk-label]').textContent = button.getAttribute('data-label');
+            lab.querySelector('[data-risk-marker]').style.left = button.getAttribute('data-threshold') + '%';
           });
         });
 
